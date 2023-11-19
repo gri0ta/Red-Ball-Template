@@ -9,8 +9,8 @@ public class Ball : MonoBehaviour
     public float moveForce;
     Rigidbody2D rb;
     public bool isGrounded;
-    public AudioSource source;
     public AudioClip jumpingSound;
+   
 
     void Start()
     {
@@ -25,9 +25,11 @@ public class Ball : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            Jump();
+            var source = GetComponent<AudioSource>();
             source.clip = jumpingSound;
             source.Play();
+            Jump();
+            
         }
 
         LimitSpeed();

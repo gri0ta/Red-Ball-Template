@@ -60,6 +60,7 @@ public class Ball : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             GameManager.instance.Lose();
+            Destroy(gameObject);
         }
     }
 
